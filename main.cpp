@@ -1,16 +1,23 @@
 #include <iostream>
 
-int fib(int n)
+void FibFunction(int n)
 {
-	if (n == 1)
-		return 0;
-	if (n == 2)
-		return 1;
-	return fib(n - 1) + fib(n - 2);
+	int pPrevious = 0;
+	int previous = 1;
+	std::cout << pPrevious << '\n' << previous << '\n';	
+	int currentValue;	
+
+	for (int i = 2; i < n; i++)
+	{
+		currentValue = pPrevious + previous;
+		pPrevious = previous;
+		previous = currentValue;
+		std::cout << currentValue << '\n';
+	}
 }
 
 int main()
 {
-	std::cout << fib(10) << std::endl;
+	FibFunction(10);
 	return 0;
 }
